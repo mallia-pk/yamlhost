@@ -1,5 +1,6 @@
 version: '3.8'
 kind: service
+metadata: PkMallia
 services:
   appseed-app:
     container_name: appseed_app
