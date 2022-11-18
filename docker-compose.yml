@@ -1,4 +1,5 @@
 version: '3.8'
+kind: service
 services:
   appseed-app:
     container_name: appseed_app
