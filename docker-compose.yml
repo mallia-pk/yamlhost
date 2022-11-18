@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: PkMallia
+  name: pkmallia
 spec:
   selector:
-    app: PkMallia
+    app: pkmallia
   ports:
   - port: 5000
   type: NodePort
@@ -12,18 +12,18 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: PkMallia
+  name: pkmallia
   labels:
     app: max-object-detector
 spec:
   selector:
     matchLabels:
-      app: PkMallia
+      app: pkmallia
   replicas: 1
   template:
     metadata:
       labels:
-        app: PkMallia
+        app: pkmallia
     spec:
       containers:
         env:
