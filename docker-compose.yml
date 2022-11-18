@@ -1,29 +1,31 @@
-version: '3.8'
-kind: service
-metadata: PkMallia
-services:
-  appseed-app:
-    container_name: appseed_app
-    restart: always
-    env_file: .env
-    build: .
-    networks:
-      - db_network
-      - web_network
-  nginx:
-    container_name: nginx
-    restart: always
-    image: "nginx:latest"
-    ports:
-      - "5085:5085"
-    volumes:
-      - ./nginx:/etc/nginx/conf.d
-    networks:
-      - web_network
-    depends_on: 
-      - appseed-app
-networks:
-  db_network:
-    driver: bridge
-  web_network:
-    driver: bridge
+apiVersion: v1
+kind: Service
+metadata:
+  name: PkMallia
+spec:
+  selector:
+    app: PkMallia
+  ports:
+  - port: 5000
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: PkMallia
+  labels:
+    app: max-object-detector
+spec:
+  selector:
+    matchLabels:
+      app: PkMallia
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: PkMallia
+    spec:
+      containers:
+        env:
+        - name: DISABLE_WEB_APP
+          value: "false"
