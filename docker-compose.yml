@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: pkmallia
-        image: quay.io/codait/pkmallia:latest
+        image: https://hub.docker.com/repository/docker/pkmallia/firstimage:latest
         ports:
         - containerPort: 5000
         env:
