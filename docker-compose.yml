@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: pkmallia
-        image: https://hub.docker.com/repository/docker/pkmallia/firstimage:latest
+        image: pkmallia/firstimage:latest
         ports:
         - containerPort: 5000
         env:
