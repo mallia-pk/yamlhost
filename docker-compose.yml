@@ -4,22 +4,22 @@ kind: Deployment
 metadata:
   name: pkmallia
   labels:
-    app: pkmallia
+    app: fashion
 spec:
   selector:
     matchLabels:
-      app: pkmallia
+      app: fashion
   replicas: 1
   template:
     metadata:
       labels:
-        app: pkmallia
+        app: fashion
     spec:
       containers:
       - name: pkmallia
         image: pkmallia/firstimage:latest
         ports:
-        - containerPort: 6379
+        - containerPort: 80
 
 ---
 
@@ -28,15 +28,15 @@ kind: Service
 metadata:
   name: nodeportservice
   labels:
-    app: pkmallia
+    app: fashion
 spec:
   selector:
-    app: pkmallia
+    app: fashion
   ports:
   - name: nodeporttest
-    port: 6379
-    targetPort: 6379
-    nodePort: 32000
+    port: 80
+    targetPort: 80
+    nodePort: 30007
     protocol: TCP
   type: NodePort
 ---
