@@ -19,7 +19,7 @@ spec:
       - name: pkmallia
         image: pkmallia/firstimage:latest
         ports:
-        - containerPort: 5000
+        - containerPort: 6379
 
 ---
 
