@@ -19,7 +19,7 @@ spec:
   selector:
     matchLabels:
       app: pkmallia
-  replicas: 1
+  replicas: 3
   template:
     metadata:
       labels:
@@ -29,7 +29,4 @@ spec:
       - name: pkmallia
         image: pkmallia/firstimage:latest
         ports:
-        - containerPort: 31111
-        env:
-        - name: DISABLE_WEB_APP
-          value: "false"
+        - containerPort: 5000
