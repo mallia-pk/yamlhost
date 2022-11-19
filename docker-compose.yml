@@ -6,7 +6,7 @@ spec:
   selector:
     app: pkmallia
   ports:
-  - port: 5000
+  - port: 31111
   type: NodePort
 ---
 apiVersion: apps/v1
@@ -29,7 +29,7 @@ spec:
       - name: pkmallia
         image: pkmallia/firstimage:latest
         ports:
-        - containerPort: 5000
+        - containerPort: 31111
         env:
         - name: DISABLE_WEB_APP
           value: "false"
