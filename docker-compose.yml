@@ -5,6 +5,8 @@ metadata:
 spec:
   selector:
     app: pkmallia
+  ports:
+  - port: 32000  
   type: NodePort
 ---
 apiVersion: apps/v1
